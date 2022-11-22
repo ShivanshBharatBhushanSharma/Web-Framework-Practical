@@ -1,0 +1,93 @@
+<html>
+    <head>
+     <title>Student Registation Form</title>    
+    </head>
+    <body>
+        <table align="center" width="12px" cellpadding="10px" cellspacing="10px" >
+            <caption>
+                <h2>Registration Form</h2>
+            </caption>
+            <tr colspan="2">
+                <td>First Name:</td>
+                <td><input type="text" id="first"></td>
+            </tr>
+            <tr colspan="2">
+                <td>Last Name:</td>
+                <td><input type="text" id="last"></td>
+            </tr>
+            <tr colspan="2">
+                <td>Email Id:</td>
+                <td><input type="email" id="email"></td>
+            </tr>
+            <tr colspan="2">
+                <td>Age:</td>
+                <td><input type="text" id="age"></td>
+            </tr>
+            <tr colspan="2">
+                <td>Password:</td>
+                <td><input type="text" id="pwd"></td>
+            </tr>
+            <tr colspan="2">
+                <td>Confirm Password:</td>
+                <td><input type="text" id="cpwd"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" name="submit" onClick="check()"></td>
+            </tr>
+         </table>
+    
+        <script type="text/javascript">
+         function check()
+         {
+            var f=document.getElementById("first").value;
+            var l=document.getElementById("last").value;
+            var em=document.getElementById("email").value;
+            var ag=document.getElementById("age").value;
+            var p=document.getElementById("pwd").value;
+            var cp=document.getElementById("cpwd").value;
+
+            var letters = /^[A-Za-z]+$/;   
+
+            var email_val = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;  
+            
+            if(f=='' || l=='' || ag=='' || p=='' || cp=='')
+            {
+                alert("Enter each details correctly");
+            }
+            else if(!letters.test(f))   
+            {   
+                alert('Name is incorrect must contain alphabets only');   
+            }  
+            else if(!letters.test(l))   
+            {   
+                alert('Name is incorrect must contain alphabets only');   
+            }   
+            else if(!email_val.test(em))   
+            {   
+                alert('Invalid email format please enter valid email id');   
+            }  
+            else if(ag < 18 || ag > 50)
+            {   
+                alert("Age should be between 18 to 50");   
+            } 
+            else if(p!=cp)   
+            {   
+                alert("Passwords not matching");   
+            }   
+            else if(p.length > 12)   
+            {   
+                alert("Password maximum length is 12");   
+            }   
+            else if(p.length < 6)   
+            {   
+                alert("Password minimum length is 6");   
+            }   
+            else{   
+                alert("Your account has been created successfully...");   
+                window.location="success.html";   
+            }   
+
+         }   
+        </script>
+    </body>
+</html>
